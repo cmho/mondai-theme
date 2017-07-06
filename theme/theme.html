@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>{block:PostTitle}{PostTitle} - {/block:PostTitle}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+		
+		<meta name="description" content="{MetaDescription}" />
+		<meta name="color:Body Text Color" content="#333333" />
+		<meta name="font:Body Font" content="Helvetica" />
+		<meta name="font:Chat Font" content="Courier" />
+		<meta name="color:Alternate Accent Color" content="#d9f0ff" />
+
+		<link rel="icon" type="image/png" href="{Favicon}" />
+		<link rel="alternate" type="application/rss+xml" title="{Title}" href="{RSS}" />
+
+		<style type="text/css">
+			body {
+				background-color: {BackgroundColor};
+				font-size: 12px;
+				color: {color:Body Text Color};
+				font-family: {font:Body Font};
+				text-align: center;
+			}
+
+			a {
+				color: {AccentColor};
+				text-decoration: none;
+			}
+			
+			a:hover {
+			    color: {TitleColor};
+			}
+			
+			small {
+			    font-size: 10px;
+			}
+
+			#page {
+				width: 768px;
+				margin: 20px auto;
+				text-align: left;
+			}
+
+			#page:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+
+			#page #header {
+				float: left;
+				width: 228px;
+			}
+
+			#page #header h1 {
+				font-family: {TitleFont};
+				font-weight: {TitleFontWeight};
+				color: {TitleColor};
+				font-size: 30px;
+				text-align: right;
+				margin: 0 0 12px;
+			}
+			
+			#page #header h1 a {
+			    color: {TitleColor};
+			}
+
+			#page #header .header-image {
+				box-sizing: border-box;
+			}
+
+			#page #header .description {
+				text-align: left;
+				position: relative;
+			}
+
+			#page #header .description .avatar {
+				position: absolute;
+				border: 3px {AccentColor} solid;
+				left: -45px;
+			}
+
+			#page #header .description .avatar.circle {
+				border-radius: 60px;
+				-moz-border-radius: 60px;
+				-webkit-border-radius: 60px;
+				-o-border-radius: 60px;
+			}
+
+			#page #header ul.links {
+				list-style: none;
+				margin: 20px 0;
+				padding: 0;
+			}
+
+			#page #header ul.links li a {
+			    display: block;
+				padding: 5px;
+				background-color: {AccentColor};
+				color: {BackgroundColor};
+				margin-bottom: 5px;
+			}
+			
+			#page #header ul.links li a:hover {
+			    background-color: {TitleColor};
+			}
+
+			#page #content {
+				float: left;
+				width: 500px;
+				margin-left: 40px;
+			}
+
+			#page #content .post {
+				margin-bottom: 50px;
+			}
+
+			#page #content .post a {
+				text-decoration: underline;
+			}
+
+			#page #content .post .post-content {
+
+			}
+			
+			#page #content .post .post-content h2 a {
+			    text-decoration: none;
+			    color: {color:Body Text Color};
+			}
+
+			#page #content .post .post-content blockquote {
+				margin-left: 15px;
+				padding-left: 15px;
+				padding-right: 0;
+				margin-right: 0;
+				border-left: 3px {AccentColor} solid;
+			}
+			
+			#page #content .post .post-content ul.chat {
+			    list-style: none;
+			    font-family: {font:Chat Font};
+			    margin: 1em 0;
+			    padding: 0;
+			    line-height: 1.4em;
+			}
+			
+			#page #content .post .post-content .question-header {
+			    font-style: italic;
+			}
+			
+			#page #content .post .post-content .question-header {
+			    margin: 0 0 10px;
+			}
+			
+			#page #content .post .post-content .question-header img {
+			    display: inline-block;
+			    vertical-align: middle;
+			    border-radius: 30px;
+			    -moz-border-radius: 30px;
+			    -webkit-border-radius: 30px;
+			    -o-border-radius: 30px;
+			    border: 3px {AccentColor} solid;
+			    margin-right: 5px;
+			}
+			
+			#page #content .post .post-content .question-text {
+			    margin-left: 41px;
+			    padding: 10px;
+			    background-color: {color:Alternate Accent Color};
+			}
+			
+			#page #content .post .post-content .answerer {
+			    margin-top: 20px;
+			}
+			
+			#page #content .post .post-content .answerer img {
+			    display: inline-block;
+			    vertical-align: middle;
+			    border-radius: 30px;
+			    -moz-border-radius: 30px;
+			    -webkit-border-radius: 30px;
+			    -o-border-radius: 30px;
+			    border: 3px {AccentColor} solid;
+			    margin-right: 5px;
+			}
+			
+			#page #content .post .post-content .answer {
+			    margin-left: 0px;
+			}
+
+			#page #content .post .post-footer {
+                background-color: {AccentColor};
+                color: {BackgroundColor};
+                padding: 5px;
+			}
+
+			#page #content .post .post-footer a {
+				text-decoration: none;
+				color: {BackgroundColor};
+			}
+
+			#page #content .post .post-footer:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+			#page #content .post #notes .notes {
+			    list-style: none;
+			    margin: 10px 0 0 0;
+			    padding: 0;
+			}
+			
+			#page #content .post #notes .notes li {
+			    margin-bottom: 5px;
+			    line-height: 16px;
+			}
+			
+			#page #content .post #notes .notes li .avatar_frame img {
+			    border: 3px {AccentColor} solid;
+			    margin-right: 5px;
+			}
+
+			#page #content .navigation {
+				text-align: center;
+				font-size: 16px;
+			}
+			
+			#page #content .navigation a {
+				display: inline-block;
+				padding: 3px 5px;
+				background-color: {AccentColor};
+				color: {BackgroundColor};
+			}
+
+			#page #content .navigation span {
+				font-style: italic;
+				display: inline-block;
+				padding: 3px 5px;
+			}
+
+			@media only screen and (max-width: 768px) {
+				#page {
+					width: 500px;
+				}
+
+				#page #header, #page #content {
+					width: 100%;
+				}
+
+				#page #header {
+					margin-bottom: 20px;
+					padding-bottom: 20px;
+				}
+
+				#page #header .description .avatar {
+					position: static;
+					float: left;
+					margin-right: 5px;
+					left: 0;
+				}
+
+				#page #header ul.links {
+					text-align: center;
+				}
+
+				#page #header ul.links li {
+					display: inline-block;
+					margin-right: 5px;
+				}
+				
+				#page #header ul.links li:last-child {
+				    margin-right: 0px;
+				}
+
+				#page #content {
+					margin-left: 0;
+				}
+			}
+
+			@media only screen and (max-width: 528px) {
+				#page {
+					width: 96%;
+				}
+			}
+
+			{CustomCSS}
+		</style>
+	</head>
+
+	<body>
+		<div id="page">
+			<div id="header">
+				<h1><a href="/">{Title}</a></h1>
+				{block:IfHeaderImage}<img src="{HeaderImage}" width="100%" class="header-image" />{/block:IfHeaderImage}
+				<p class="description">{block:ShowAvatar}<img src="{PortraitURL-30}" height="30" width="30" class="avatar {AvatarShape}" />{/block:ShowAvatar}{Description}</p>
+				<ul class="links">
+					{block:AskEnabled}
+						<li><a href="{BlogURL}ask">{AskLabel}</a></li>
+					{/block:AskEnabled}
+					{block:SubmissionsEnabled}
+						<li><a href="{BlogURL}submit">{SubmitLabel}</a></li>
+					{/block:SubmissionsEnabled}
+					{block:HasPages}
+						{block:Pages}
+							<li><a href="{URL}">{Label}</a></li>
+						{/block:Pages}
+					{/block:HasPages}
+				</ul>
+			</div>
+			<div id="content">
+				{block:Posts inlineMediaWidth="500"}
+					<div class="post {PostType}-post">
+						<div class="post-content">
+							{block:Text}
+								{block:Title}<h2>{Title}</h2>{/block:Title}
+								{Body}
+							{/block:Text}
+
+							{block:Photo}
+								{LinkOpenTag}<img src="{PhotoURL-500}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" alt="{PhotoAlt}" />{LinkCloseTag}
+								{block:Caption}
+									{Caption}
+								{/block:Caption}
+							{/block:Photo}
+
+							{block:Panorama}
+								{LinkOpenTag}<img src="{PhotoURL-500}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" alt="{PhotoAlt}" />{LinkCloseTag}
+								{block:Caption}
+									{Caption}
+								{/block:Caption}
+							{/block:Panorama}
+
+							{block:Photoset}
+								{Photoset-500}
+								{block:Caption}
+									{Caption}
+								{/block:Caption}
+							{/block:Photoset}
+
+							{block:Quote}
+								<h2 class="{Length}-quote">{Quote}</h2>
+								{block:Source}<p class="quote-source">&mdash; {Source}</p>{/block:Source}
+							{/block:Quote}
+
+							{block:Link}
+								{block:Thumbnail}<img src="{Thumbnail}" alt="{Name}" />{/block:Thumbnail}
+								<h2><a href="{URL}" rel="external">{Name} &rarr;</a></h2>
+								{block:Excerpt}<blockquote>{Excerpt}</blockquote>{/block:Excerpt}
+								{block:Description}<p class="description">{Description}</p>{/block:Description}
+							{/block:Link}
+
+							{block:Chat}
+								{block:Title}<h2>{Title}</h2>{/block:Title}
+								<ul class="chat">
+									{block:Lines}
+										<li class="chat-{UserNumber} chat-{Alt}">{block:Label}<strong>{Label}</strong> {/block:Label}{Line}</li>
+									{/block:Lines}
+								</ul>
+							{/block:Chat}
+
+							{block:Audio}
+								{block:AudioEmbed}
+									{AudioEmbed-500}
+								{/block:AudioEmbed}
+								{block:Caption}
+									{Caption}
+								{/block:Caption}
+							{/block:Audio}
+
+							{block:Video}
+								{Video-500}
+								{block:Caption}
+									{Caption}
+								{/block:Caption}
+							{/block:Video}
+
+							{block:Answer}
+								<div class="question">
+								    <p class="question-header"><img src="{AskerPortraitURL-30}" width="30" height="30" /> {Asker} asked:</p>
+									<div class="question-text">{Question}</div>
+								</div>
+
+								{block:Answerer}
+									<div class="answerer">
+										<img src="{AnswererPortraitURL-30}" width="30" height="30" /> {Answerer} answered:
+									</div>
+									{Answer}
+								{/block:Answerer}
+
+								<div class="answer">
+								    {Replies}
+								</div>
+							{/block:Answer}
+						</div>
+            {block:Date}
+  						<div class="post-footer">
+								<a href="{Permalink}">{MonthNumber}.{DayOfMonth}.{ShortYear} @ {12Hour}:{Minutes}{AmPm}</a>
+  							&bull;
+  							<a href="{Permalink}#notes">{NoteCount}</a>
+  							{block:HasTags}
+  								&bull;
+  								{block:Tags}
+  									<a href="{TagURL}">#{Tag}</a>
+  								{/block:Tags}
+  							{/block:HasTags}
+  						</div>
+            {/block:Date}
+						{block:PostNotes}
+							<div id="notes">
+								{PostNotes-16}
+							</div>
+						{/block:PostNotes}
+					</div>
+				{/block:Posts}
+				<div class="navigation">
+					{block:Pagination}
+						{block:PreviousPage}<a href="{PreviousPage}">&lsaquo;</a>{/block:PreviousPage}
+						{block:JumpPagination length="5"}
+							{block:CurrentPage}
+								<span>{PageNumber}</span>
+							{/block:CurrentPage}
+							{block:JumpPage}
+								<a href="{URL}">{PageNumber}</a>
+							{/block:JumpPage}
+						{/block:JumpPagination}
+						{block:NextPage}<a href="{NextPage}">&rsaquo;</a>{/block:NextPage}
+					{/block:Pagination}
+					{block:PermalinkPagination}
+						{block:PreviousPost}
+							<a href="{PreviousPost}">&lsaquo; prev post</a>
+						{/block:PreviousPost}
+						{block:NextPost}
+							<a href="{NextPost}">next post &rsaquo;</a>
+						{/block:NextPost}
+					{/block:PermalinkPagination}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
